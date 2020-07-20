@@ -1,0 +1,182 @@
+
+<div class="container-fluid">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-5" style="font-size: 28px;">
+     Branches
+    </div>
+
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-12" >
+     <div style="float: right;"><button class="req_btn" (click)="openModal()">New Branch Requests</button> </div>
+    </div>
+
+  </div>
+  <div class="row mt-3" >
+    <div class="col-md-4 " *ngFor='let data of Client_AllBRanch'>
+      <div class="C_card"  >
+      <div class="row" style="padding:40px 0px 0px 35px">
+        <!-- data.company_logo -->
+      <img src= '{{BaseUrlFormImage+data.company_logo}}'  height="50px">
+
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12">Name : {{data.branch_name}}</div>
+  </div>
+  <div class="row card_contant">
+    <div class="col-md-12">URl : {{data.company_url}}</div>
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12"> Status: {{data.branch_status_title}}</div>
+  </div>
+
+  <div class="row card_contant" >
+    <div class="col-md-12">City: {{data.city}}</div>
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12">Address : {{data.branch_address}}</div>
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12">Contact Person: {{data.branch_phone}}</div>
+  </div>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+<modal #myModal>
+  <modal-header style="background: #88a8ef !important;
+  color: white !important;">
+
+  </modal-header>
+
+  <modal-content>
+      <div class="row">
+        <!-- <div class="col-md-4">
+          <div class="row " style="padding: 0px 1px 0px 43px;
+          font-size: 19px;">
+         Profile
+          </div>
+          <div class="row" class="placehplderimg" >
+            <img src="assets/img/brand/avatar-1577909_1280.png" style="    height: 85px;
+            width: 85px;
+            border-radius: 82px;">
+          </div>
+      <div class="row" style="padding: 20px 0px 0px 82px">
+        <span class="btn btn-default btn-file mt-1">
+          Browse…
+          <input
+            type="file"
+            id="imgInp"
+
+          />
+        </span>
+
+      </div>
+        </div> -->
+
+        <div class="col-md-8">
+          <form [formGroup]='branchForm'>
+          <div class="row" >
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">Branch Name</label>
+              <input
+              type="text"
+              id="Branch_Name"
+              name="Branch_Name"
+              class="form-control"
+              placeholder="branch name"
+              formControlName="BranchName"
+              [ngClass]="{ 'is-invalid': submitted && f.BranchName.errors }"
+              >
+              <div
+              *ngIf="submitted && f.BranchName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.BranchName.errors.required">
+                Branch Name is required
+              </div>
+            </div>
+            </div>
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">City</label>
+              <input
+              type="text"
+              id="branches_city"
+              name="branches_city"
+              class="form-control"
+              placeholder="City.."
+              formControlName="City"
+              [ngClass]="{ 'is-invalid': submitted && f.City.errors }"
+              >
+              <div *ngIf="submitted && f.City.errors" class="invalid-feedback">
+                <div *ngIf="f.City.errors.required">City is required</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row" >
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">Phone Number </label>
+              <input
+              name="Phone"
+              class="form-control"
+              placeholder="Phone.."
+              formControlName="phone"
+              [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+              >
+              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">phone is required</div>
+              </div>
+            </div>
+
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">Address</label>
+              <input
+              type="text"
+              id="branches_address"
+              name="branches_address"
+              class="form-control"
+              placeholder="Address.."
+              formControlName="address"
+              [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+
+              >
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required">
+                  Address is required
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+          <div class="row">
+
+
+            <div class="col-md-12 mt-2">
+             <button class="sub_req "   (click)="onSubmit()">Submit Request</button>
+            </div>
+          </div>
+        </form>
+        </div>
+
+
+      </div>
+  </modal-content>
+
+  <modal-footer>
+     <button (click)='CloseBranchPopup()' class='btn btn-danger'>Cancel</button>
+  </modal-footer>
+</modal>

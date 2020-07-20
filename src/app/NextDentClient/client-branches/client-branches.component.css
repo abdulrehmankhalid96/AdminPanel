@@ -1,0 +1,65 @@
+.C_card{
+  height: 280px;
+  background: white;
+  box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.card_contant{
+  padding:2px 1px 1px 38px;
+  font-size: 15px;
+}
+/* #00d853 */
+.req_btn{
+  color: white;
+  background-color:#00d853 ;
+  padding: 10px;
+  border: none;
+}
+.placehplderimg{
+  padding: 42px 0px 0px 68px;
+}
+@media screen and (max-width: 600px) {
+  .placehplderimg{
+    padding: 42px 0px 0px 40px;
+  }
+}
+/* .btn_input{
+  padding: 7px 10px 6px 15px;
+  border: 1px solid #f3f3f4;
+  border-radius: 5px;
+  background-color:white ;
+  color:#407fd6 ;
+} */
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #f3f3f4;
+  border-radius: 5px;
+  background-color:white ;
+  color:#407fd6 ;}
+
+.btn-file input[type="file"] {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+.sub_req{
+  width: 100%;
+  color: white;
+  background-color: #3f74e6;
+  padding: 14px 0px 14px 0px;
+  border: none;
+}
+.modal-header .close{
+  color: white !important;
+}

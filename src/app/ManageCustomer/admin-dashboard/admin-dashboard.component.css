@@ -1,0 +1,65 @@
+.card{
+  padding: 5px;
+    background: white;
+    box-shadow:  3px 3px 3px 3px #e8f2fc;
+    margin-top: 10px;
+    height: 175px;
+}
+.center{
+  color: #ca79f7;
+  text-align: center;
+  font-size: 50px;
+  padding:35px;
+}
+.center_numb_1{
+  color: #99b4f2;
+  text-align: center;
+  font-size: 50px;
+  padding:35px;
+}
+.center_numb_3{
+  color: #ffce57;
+  text-align: center;
+  font-size: 50px;
+  padding:35px;
+
+}
+.center_numb_4{
+  color: #91ecae;
+  text-align: center;
+  font-size: 50px;
+  padding:35px;
+}
+.center_2{
+  font-size: 18px;
+  text-align: center;
+}
+.header_1{
+  font-size: 22px;
+}
+.transection_row{
+  background: #3f74e8;
+    color: white;
+    height: 100px;
+    padding-top: 7px;
+    box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.transection_row_2{
+  background: white;
+  color: black;
+  height: 100px;
+  padding-top: 7px;
+  box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.tableBody{
+
+  padding: 3px 3px 3px 3px;
+}
+.tabaleHeader{
+  background: #3f74e8;
+  color: white;
+  height: 52px;
+  padding: 12px 8px 0px 20px;
+  font-size: 20px;
+}
+

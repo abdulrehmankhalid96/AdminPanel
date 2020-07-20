@@ -1,0 +1,96 @@
+.card{
+  padding: 5px;
+    background: white;
+    box-shadow:  3px 3px 3px 3px #e8f2fc;
+    margin-top: 10px;
+    height: 175px;
+}
+.center{
+  color: #ca79f7;
+  text-align: center;
+  font-size: 40px;
+  padding:35px;
+}
+.center_numb_1{
+  color: #99b4f2;
+  text-align: center;
+  font-size: 40px;
+  padding:35px;
+}
+.center_numb_3{
+  color: #ffce57;
+  text-align: center;
+  font-size: 40px;
+  padding:35px;
+
+}
+.center_numb_4{
+  color: #91ecae;
+  text-align: center;
+  font-size: 40px;
+  padding:35px;
+}
+.center_2{
+  font-size: 18px;
+  text-align: center;
+}
+.header_1{
+  font-size: 22px;
+}
+.transection_row{
+  background: #3f74e8;
+    color: white;
+    height: 100px;
+    padding-top: 7px;
+    box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.transection_row_2{
+  background: white;
+  color: black;
+  height: 100px;
+  padding-top: 7px;
+  box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.tableBody{
+
+  padding: 3px 3px 3px 3px;
+}
+.tabaleHeader{
+  background: #3f74e8;
+  color: white;
+  height: 52px;
+  padding: 12px 8px 0px 20px;
+  font-size: 20px;
+}
+
+.R_table th{
+  padding: 10px 0px 10px 30px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.tableheaderstyle th {
+  padding: 10px 36px 13px 36px
+}
+.tablebodystyle td{
+  padding: 10px 36px 13px 55px;
+}
+.theaderstyel tr{
+background-color: #3f74e8;
+color: white;
+font-weight: lighter;
+border: 7px solid #F6FAFD;
+}
+
+.tbodystyle tr{
+  background-color: white;
+  border: 7px solid #F6FAFD;
+}
+.details_btn{
+  padding: 0px 10px 0px 9px;
+  border: 2px;
+
+  border: 1px solid #3f74e8;
+  color: #3f74e8;
+  border-radius: 10px;
+  background-color: white;
+}

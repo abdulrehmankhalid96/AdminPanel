@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row title">
+    Request for new branches
+  </div>
+
+  <div class="row reqInfo" *ngFor='let data of all_requested_branch'>
+    <div class="col-md-12">
+     <div class="row">
+       <div class="col-md-6">
+         <img src="assets/img/brand/avatar-1577909_1280.png"  class="placeholderImg">
+         <h6 class="titleName">{{data.branch_name}}</h6>
+
+
+       </div>
+
+     </div>
+    <div class="row" >
+     <div class="col-md-4" style="padding: 20px 0px 0px 22px;">
+       <div style="float: left;">
+        <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
+        <span>{{data.branch_phone}}</span>
+       </div>
+
+       <div style="float: right;">
+        <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+
+        <span>Sample@gmail.com</span>
+       </div>
+     </div>
+    </div>
+
+    <div class="row" >
+      <div class="col-md-4" style="padding: 20px 0px 0px 22px;">
+        <div style="float: left;">
+          <i class="fa fa-clock-o  fa-lg" aria-hidden="true"></i>
+
+         <span>{{data.date_time_created}}</span>
+        </div>
+
+        <div style="float: right;">
+         <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
+         <span>202-555-0191</span>
+        </div>
+      </div>
+     </div>
+
+
+     <div class="row" >
+      <div class="col-md-4" style="padding: 20px 0px 0px 22px;">
+        <div style="float: left;">
+          <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+
+         <span>{{data.branch_address}}</span>
+        </div>
+
+
+      </div>
+      <div class="col-md-8">
+        <button class="btn_2" (click)="createBranch(data)">Create Branch</button>
+       <button class="btn_1">Contact Person</button>
+
+      </div>
+     </div>
+    </div>
+  </div>
+
+
+</div>

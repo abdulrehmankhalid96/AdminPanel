@@ -1,0 +1,135 @@
+
+<div class="container-fluid" >
+  <div class="row title">
+    Tickets
+  </div>
+<div class="row">
+<div class="col-md-3 ">
+  <div class="card">
+  <p class="center">15</p>
+  <p class="center_2">Over Due</p>
+  </div>
+</div>
+<div class="col-md-3 ">
+  <div class="card">
+  <p class="center_numb_1">15</p>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <p class="center_2">Open</p>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  </div>
+</div>
+<div class="col-md-3 ">
+  <div class="card">
+  <p class="center_numb_3">15</p>
+  <p class="center_2">In Progress</p>
+  </div>
+</div>
+<div class="col-md-3 ">
+  <div class="card">
+  <p class="center_numb_4">15</p>
+  <p class="center_2">Resolved</p>
+  </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-5">
+  <span style="color: #6c92eb">See All</span>
+  <span style="color: #6c92eb">Today</span>
+  <span style="color: #6c92eb">Yesterday</span>
+</div>
+
+
+
+    <div class="col-md-6">
+      <label for="From" class="labeltype">From:
+        <input class="inputtype" placeholder="From" type="date" id="From">
+      </label>
+
+
+      <label for="To" class="labeltype">To:
+        <input class="inputtype" placeholder="To" type="date" id="To">
+      </label>
+
+
+
+    </div>
+    <div class="col-md-1">       <input type="button" value="GO" class="buttontype"></div>
+</div>
+
+</div>
+
+<div class="container-fluid">
+<!-- customer_id: "12"
+date_time_created: "2020-07-08 07:24:28"
+date_time_update: "0000-00-00 00:00:00"
+description: "www"
+isClosed: "0"
+media_url: "uploads/1594211068185039602.png"
+status_id: "1"
+subject: "wwww"
+ticket_id: "1"
+ticket_status_title: "Waiting For Support"
+user_id_created: "62"
+user_id_updated: "0"
+user_name: "abdul" -->
+  <div class="row mt-5    "  >
+    <div class="col-md-3 " *ngFor='let ticket of all_tickets'>
+      <div class="disp">
+      <div class="row ">
+        <div class="col-md-12 cardtitle">
+          Technical Support
+        </div>
+      </div>
+      <div class="row" style=" height: 175px; border: 2px dashed #b0b0b0;">
+        <div class="col-md-12">
+         <div class="row">
+        <div class="col-md-12">
+          <p style="color: #b0b0b0;">Ticket # <a style="color: #799bed;" >{{ticket.ticket_id}}</a></p>
+          <p>{{ticket.subject}}
+          </p>
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-md-12">
+            <h6 style=" float: right;">{{ticket.date_time_created}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="    padding: 14px 1px 1px 1px;">
+        <div class="col-md-4">
+          <img
+            src="http://placehold.it/50/55C1E7/fff&text=U"
+            alt="User Avatar"
+            class="img-circle"
+          />
+
+
+        </div>
+        <div class="col-md-8" style=" padding: 14px 0px 0px 0px;" >
+          <div style="float: left;     ">
+            <h6>{{ticket.user_name}}</h6>
+
+          </div>
+
+         </div>
+
+      </div>
+
+    </div>
+
+    </div>
+
+
+
+
+
+  </div>
+
+</div>

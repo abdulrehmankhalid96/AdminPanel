@@ -1,0 +1,401 @@
+<div class="container-fluid">
+  <div class="row">
+    Tickets
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <input class="form-control" placeholder="Find ticket">
+    </div>
+    <div class="col-md-2">
+      7 Tickets Total
+    </div>
+    <div class="col-md-6">
+      <button class="btn_add_tickets" (click)='openModal()'>Add New Tickets</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <input type="checkbox" id="All" name="All" value="All">
+  <label class="checkbox" for="All">All</label>
+
+  <input type="checkbox" id="ON_HOLD" name="ON_HOLD" value="ON HOLD">
+  <label class="checkbox" for="ON_HOLD">ON HOLD</label>
+
+  <input type="checkbox" id="IN_PROGRESS" name="IN_PROGRESS" value="IN PROGRESS">
+  <label class="checkbox" for="IN_PROGRESS">IN PROGRESS</label>
+
+  <input type="checkbox" id="COMPLETED" name="COMPLETED" value="COMPLETED">
+  <label class="checkbox" for="COMPLETED">COMPLETED</label>
+    </div>
+  </div>
+  <!-- <div class="tableBody table-responsive">
+
+    <table class="table">
+
+      <thead class="tableheader" >
+        <tr>
+          <th>Ticket ID</th>
+          <th>Subject</th>
+          <th>Status</th>
+
+          <th>Action</th>
+        </tr>
+      </thead>
+
+
+      <tbody >
+        <tr *ngFor='let data of all_tickets'>
+          <td >{{data.ticket_id}}</td>
+          <td >
+            {{data.subject}}
+          </td>
+
+          <td>{{data.ticket_status_title}}</td>
+
+          <td><button class='btn btn-success' (click)='toView(data)'>View</button></td>
+
+        </tr>
+
+
+      </tbody>
+
+    </table>
+    </div> -->
+<!-- <div class="row" style="
+background: white;
+">
+  <div class="col-md-1"></div>
+  <div class="col-md-1">
+    <img src="assets/img/brand/avatar-1577909_1280.png" class="placeholderimag">
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <input class="form-control" placeholder="Post Your Message">
+      </div>
+    </div>
+    <div class="row" style="padding: 1px 2px 0px 17px;">
+      <div class="col-md-12">
+        <button style="float: right;    padding: 10px 20px 10px 20px;background-color: #00bac6;border: none; color: white;">
+          Post</button>
+        <button style="float: right;     padding: 10px 20px 10px 20px;background-color: #b3b3b3;border: none; color: white">
+          Save Draft</button>
+          <span class="image-upload" style="float: right;">
+            <label for="file-input">
+              <i style="float: right;
+              padding: 0px 17px 12px 39px;" class="fa fa-paperclip fa-2x mt-1" aria-hidden="true"></i>
+            </label>
+
+            <input id="file-input" type="file"/>
+          </span>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="row" style="background-color: white;">
+  <div class="col-md-1"></div>
+  <div class="col-md-1">
+    <img src="assets/img/brand/avatar-1577909_1280.png" class="placeholderimag">
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-9">
+        Albert
+      </div>
+      <div class="col-md-3">
+        <small style="float: right;">13 hours ago</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet metus viverra, tincidunt tellus nec, mollis augue. Curabitur faucibus fringilla diam et laoreet.
+        Duis sed justo nisl. Quisque molestie ligula sit amet dictum dignissim. Sed tincidunt gravida erat sed accumsan.
+      </div>
+
+    </div>
+  </div>
+
+</div> -->
+</div>
+
+<modal #myModal>
+  <modal-header style="background: #88a8ef !important;
+  color: white !important;">
+
+  </modal-header>
+
+  <modal-content>
+<div class='row'>
+  <div class='col-md-3'>
+    <div class='row'>
+      <div class='col-md-12'>
+        Subject
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        Chat:Account Activation issue
+      </div>
+    </div>
+  </div>
+
+  <div class='col-md-3'>
+    <div class='row'>
+      <div class='col-md-12'>
+        Case ID
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12'>
+       7098118361
+      </div>
+    </div>
+  </div>
+
+  <div class='col-md-3'>
+    <div class='row'>
+      <div class='col-md-12'>
+        Status
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12'>
+       Open
+      </div>
+    </div>
+  </div>
+
+
+  <div class='col-md-3'>
+    <div class='row'>
+      <div class='col-md-12'>
+        Created
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12'>
+       2020-06-15
+      </div>
+    </div>
+  </div>
+</div>
+<form [formGroup]='tickets_form'>
+
+
+<div class='row' style='padding: 40px 20px 20px 20px;'>
+  <div class='col-md-12'>
+    <label style='    font-size: 18px;'>Subject</label>
+    <input class='form-control' formControlName='Subject'>
+  </div>
+</div>
+
+<div class='row' style='padding: 0px 20px 20px 20px;'>
+  <div class='col-md-12'>
+    <label style='    font-size: 18px;'>Reply</label>
+    <textarea class='form-control' formControlName='Reply'></textarea>
+  </div>
+</div>
+<div class='row' style="padding: 0px 0px 15px 36px">
+  <div class='col-md-12'>
+   <h6>Attachment {{selectedfilename}}</h6>
+  </div>
+</div>
+<div class='row' style='padding:0px 0px 12px 35px;' >
+  <div class='col-md-12'>
+    <button style='padding:8px 10px 8px 8px' type="button" (click)='addfile.click()'>Choose File</button>
+    <input type="file" #addfile hidden formControlName='Attachment' (change)="catchfile($event)">
+  </div>
+</div>
+</form>
+  </modal-content>
+
+  <modal-footer>
+    <button class='popup_footer' (click)='submitTicket()'>Submit</button>
+  </modal-footer>
+</modal>
+
+
+
+<!-- sample -->
+<div class='container-fluid'>
+  <div  class="row" style='    border-bottom: 2px solid #c8ced3;  border-top: 1px solid #c8ced3;' >
+
+    <div class='col-md-3' >
+      <div class='customeDrop'>
+        Ticket ID
+      </div>
+    </div>
+    <div class='col-md-3' >
+        <div class='customeDrop'>
+      Subject
+    </div></div>
+    <div class='col-md-3'  >
+      <div class='customeDrop'>
+        Status
+      </div>
+    </div>
+    <div class='col-md-3'  >
+      <div class='customeDrop'>
+        Action
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class='container-fluid' *ngFor='let data of all_tickets;let i=index'>
+  <div  class="row" style='    border-bottom: 1px solid #c8ced3;'  >
+
+    <div class='col-md-3' >
+      <div class='customeDropcontant'>
+        {{data.ticket_id}}
+      </div>
+    </div>
+    <div class='col-md-3' >
+        <div class='customeDropcontant'>
+
+            {{data.subject}}
+
+
+    </div></div>
+    <div class='col-md-3'  >
+      <div class='customeDropcontant'>
+        {{data.ticket_status_title}}
+      </div>
+    </div>
+    <div class='col-md-3'  >
+      <div class='customeDropcontant' (click)='viewChat(i,data)'>
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </div>
+    </div>
+
+  </div>
+  <div class='content' [class.contentShow]="i==curent">
+    <div   class="row" style="
+    background: white;
+    padding-top: 20px;
+    ">
+      <div class="col-md-1"></div>
+      <div class="col-md-1">
+        <img src="assets/img/brand/avatar-1577909_1280.png" class="placeholderimag">
+      </div>
+      <div class="col-md-6">
+        <form [formGroup]='ReplyForm'>
+        <div class="row">
+          <div class="col-md-12">
+            <input class="form-control" placeholder="Post Your Message" formControlName='message'>
+          </div>
+        </div>
+        <div class="row" style="padding: 1px 2px 0px 17px;">
+          <div class="col-md-12">
+            <!--  -->
+            <button (click)='sendReply()'
+             style="float: right;    padding: 10px 20px 10px 20px;background-color: #00bac6;border: none;
+             color: white;">
+              Send</button>
+
+              <span class="image-upload" style="float: right;">
+                <label for="file-input">
+                  <i style="float: right;
+                  padding: 0px 17px 12px 39px;" class="fa fa-paperclip fa-2x mt-1" aria-hidden="true"></i>
+                </label>
+
+                <input id="file-input" type="file" (change)='catchfile($event)' formControlName='file'/>
+              </span>
+              <span style="float: right;padding: 10px 0px 0px 0px;">{{selectedfilename}}</span>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+    <div  class="row mt-2" style="background-color: white;" *ngFor='let data of Replyes'>
+      <div class="col-md-1"></div>
+      <div class="col-md-1">
+        <img src="{{baseMedial_URL+data.media_url}}" class="placeholderimag">
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-9">
+            {{data.user_id_created}}
+          </div>
+          <div class="col-md-3">
+            <small style="float: right;">{{data.date_time_created}}</small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+           {{
+    data.description
+           }}
+          </div>
+
+        </div>
+        <div class="row">
+          <div (click)='tofilefunc(data.media_url)' style='color:blue; text-decoration: underline; cursor: pointer;' class="col-md-8">
+            See Attached File
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+<!-- <div *ngFor='let data of all_tickets;let i=index'>
+<button type="button" class="collapsible" (click)='viewChat(i)'>Open Section 1</button>
+<div class='content' [class.contentShow]="i==curent">
+  <div   class="row" style="
+  background: white;
+  padding-top: 20px;
+  ">
+    <div class="col-md-1"></div>
+    <div class="col-md-1">
+      <img src="assets/img/brand/avatar-1577909_1280.png" class="placeholderimag">
+    </div>
+    <div class="col-md-6">
+      <form [formGroup]='ReplyForm'>
+      <div class="row">
+        <div class="col-md-12">
+          <input class="form-control" placeholder="Post Your Message" formControlName='message'>
+        </div>
+      </div>
+      <div class="row" style="padding: 1px 2px 0px 17px;">
+        <div class="col-md-12">
+          <!-- (click)='sendReply()' -->
+          <!-- <button  style="float: right;    padding: 10px 20px 10px 20px;background-color: #00bac6;border: none; color: white;">
+            Send</button>
+
+            <span class="image-upload" style="float: right;">
+              <label for="file-input">
+                <i style="float: right;
+                padding: 0px 17px 12px 39px;" class="fa fa-paperclip fa-2x mt-1" aria-hidden="true"></i>
+              </label>
+
+              <input id="file-input" type="file" (change)='catchfile($event)' formControlName='file'/>
+            </span>
+            <span style="float: right;padding: 10px 0px 0px 0px;">{{selectedfilename}}</span>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+</div> -->
+<div id="myModal" class={{modalcontent}}>
+  <span class="close" (click)='close()' style=' cursor: pointer'>&times;</span>
+  <img class='modal-content' src={{comingSrc}}>
+  <div id="caption"></div>
+</div>
+

@@ -1,0 +1,107 @@
+<<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class="card">
+        <h5 class="card-header">Featured</h5>
+        <div class="card-body">
+       <div class='row'>
+          <div class='col-md-12'>Subject:{{recevingObj.subject}}</div>
+       </div>
+       <div class='row'>
+        <div class='col-md-12'>Ticket ID:{{recevingObj.ticket_id}}</div>
+      </div>
+
+      <div class='row'>
+        <div class='col-md-12'>Status:{{recevingObj.ticket_status_title}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12'>Created:2020-12-3</div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-6'>
+      <button class='reply-btn' (click)='showreply()'> Reply</button>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf='replyIstrue'  class="row" style="
+background: white;
+padding-top: 20px;
+">
+  <div class="col-md-1"></div>
+  <div class="col-md-1">
+    <img src="assets/img/brand/avatar-1577909_1280.png" class="placeholderimag">
+  </div>
+  <div class="col-md-6">
+    <form [formGroup]='ReplyForm'>
+    <div class="row">
+      <div class="col-md-12">
+        <input class="form-control" placeholder="Post Your Message" formControlName='message'>
+      </div>
+    </div>
+    <div class="row" style="padding: 1px 2px 0px 17px;">
+      <div class="col-md-12">
+        <button (click)='sendReply()' style="float: right;    padding: 10px 20px 10px 20px;background-color: #00bac6;border: none; color: white;">
+          Send</button>
+
+          <span class="image-upload" style="float: right;">
+            <label for="file-input">
+              <i style="float: right;
+              padding: 0px 17px 12px 39px;" class="fa fa-paperclip fa-2x mt-1" aria-hidden="true"></i>
+            </label>
+
+            <input id="file-input" type="file" (change)='catchfile($event)' formControlName='file'/>
+          </span>
+          <span style="float: right;padding: 10px 0px 0px 0px;">{{selectedfilename}}</span>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+
+<div class="row mt-2" style="background-color: white;" *ngFor='let data of Replyes'>
+  <div class="col-md-1"></div>
+  <div class="col-md-1">
+    <img src="assets/img/brand/avatar-1577909_1280.png" class="placeholderimag">
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-9">
+        {{data.user_id_created}}
+      </div>
+      <div class="col-md-3">
+        <small style="float: right;">{{data.date_time_created}}</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+       {{
+data.description
+       }}
+      </div>
+
+    </div>
+    <div class="row">
+      <div (click)='tofilefunc(data.media_url)' style='color:blue; text-decoration: underline; cursor: pointer;' class="col-md-8">
+        See Attached File
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div id="myModal" class={{modalcontent}}>
+  <span class="close" (click)='close()' style=' cursor: pointer'>&times;</span>
+  <img class='modal-content' src={{comingSrc}}>
+  <div id="caption"></div>
+</div>

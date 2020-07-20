@@ -1,0 +1,147 @@
+<div class="container-fluid" >
+  <div class="row">
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center">{{New_users}}</p>
+    <p class="center_2">New Users Request</p>
+    </div>
+  </div>
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center_numb_1">{{this_month_trans_comp}}</p>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <p class="center_2">Completed transection in this mounth</p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    </div>
+  </div>
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center_numb_3">{{this_month_trans_pending}}</p>
+    <p class="center_2">Pending Transection</p>
+    </div>
+  </div>
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center_numb_4">{{customer_tickets}}</p>
+    <p class="center_2">New Customers Tickets</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col-md-3 header_1">
+      Montlhy Transactions
+    </div>
+  </div>
+  <div class="row " style="padding-top: 28px;padding-left: 15px;" >
+    <div class="col-md-5 ">
+
+      <div class="row transection_row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12" style="font-size: 16px;">
+              Transections Collected
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-md-12" style="font-size: 18px;">
+             {{ getCurrentMount()}}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-5" style="font-size: 30px;">
+        <p style="float: right;">{{this_month_collections}}</p>
+        </div>
+      </div>
+      <div class="row transection_row_2 mt-2">
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12" style="font-size: 16px;">
+              Transections Collected
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-md-12" style="font-size: 18px;">
+              {{getPerMount()}}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-5" style="font-size: 30px;">
+        <p style="float: right;">{{Pre_mounth_tra}}</p>
+        </div>
+
+      </div>
+
+      <div class="row transection_row_2 mt-2">
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12" style="font-size: 16px;">
+              Transections Collected
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-md-12" style="font-size: 18px;">
+             {{getPre_preMOunt()}}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-5" style="font-size: 30px;">
+        <p style="float: right;">{{Pre_pre_mounth_tra}}</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6" style="    background: white; box-shadow: 3px 3px 3px 3px #e8f2fc;
+    padding: 0px 0px 0px 0px;">
+      <div class="row " style="padding:0px 17px 0px 15px" >
+        <div class="col-md-12 tabaleHeader" >New Users</div>
+
+      </div>
+      <div class="tableBody">
+
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let data of new_customer_data'>
+              <td>{{data.customer_name}}</td>
+              <td>{{data.customer_email}}</td>
+              <td>{{data.customer_address}}</td>
+              <td>{{data.city}}</td>
+              <td>{{data.customer_phone}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,384 @@
+<div class="container-fluid row mb-2">
+  <button
+    type="button"
+    class="btn btn-primary col-md-2"
+    (click)="togglefunction()"
+  >
+    Add Customer
+  </button>
+</div>
+<form [formGroup]="myForm" *ngIf="formtoggle">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>Form</strong>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="company">Customer Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter your company name"
+              formControlName="customerName"
+              [ngClass]="{ 'is-invalid': submitted && f.customerName.errors }"
+            />
+            <div
+              *ngIf="submitted && f.customerName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.customerName.errors.required">
+                Customer Name is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="Address">Customer Address</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Address"
+              formControlName="Customeraddress"
+              [ngClass]="{
+                'is-invalid': submitted && f.Customeraddress.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.Customeraddress.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.Customeraddress.errors.required">
+                Customer Address is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="Phone">Customer Email</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="customerEmail"
+              [ngClass]="{ 'is-invalid': submitted && f.customerEmail.errors }"
+            />
+
+            <div
+              *ngIf="submitted && f.customerEmail.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.customerEmail.errors.required">
+                Customer Email is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="Phone">Customer Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="CustomerphoneNumber"
+              [ngClass]="{
+                'is-invalid': submitted && f.CustomerphoneNumber.errors
+              }"
+            />
+
+            <div
+              *ngIf="submitted && f.CustomerphoneNumber.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.CustomerphoneNumber.errors.required">
+                Phone is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="Phone">Customer Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="CustomerMobile"
+              [ngClass]="{ 'is-invalid': submitted && f.CustomerMobile.errors }"
+            />
+
+            <div
+              *ngIf="submitted && f.CustomerMobile.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.CustomerMobile.errors.required">
+                Mobile is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="company">Contact Person Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter your company name"
+              formControlName="contactPersonName"
+              [ngClass]="{
+                'is-invalid': submitted && f.contactPersonName.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.contactPersonName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.contactPersonName.errors.required">
+                Contact Person Name is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="Address">Contact Person Designation</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Designation"
+              formControlName="contactPersonDesignation"
+              [ngClass]="{
+                'is-invalid': submitted && f.contactPersonDesignation.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.contactPersonDesignation.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.contactPersonDesignation.errors.required">
+                Designation is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="Phone">Contact Person Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="contactPersonPhone"
+              [ngClass]="{
+                'is-invalid': submitted && f.contactPersonPhone.errors
+              }"
+            />
+
+            <div
+              *ngIf="submitted && f.contactPersonPhone.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.contactPersonPhone.errors.required">
+                contact Person is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="Phone">Contact Person Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="ContactPersonMobile"
+              [ngClass]="{
+                'is-invalid': submitted && f.ContactPersonMobile.errors
+              }"
+            />
+
+            <div
+              *ngIf="submitted && f.ContactPersonMobile.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.ContactPersonMobile.errors.required">
+                Contact Person Mobile is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="Phone">Contact Person Email</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="ContactPersonEmail"
+              [ngClass]="{
+                'is-invalid': submitted && f.ContactPersonEmail.errors
+              }"
+            />
+
+            <div
+              *ngIf="submitted && f.ContactPersonEmail.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.ContactPersonEmail.errors.required">
+                Contact Person Email is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="UserEmail">User Email </label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Email"
+              formControlName="userEmail"
+              [ngClass]="{
+                'is-invalid': submitted && f.userEmail.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.userEmail.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.userEmail.errors.required">
+                Email is required
+              </div>
+              <div *ngIf="f.userEmail.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="UserEmail">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Email"
+              formControlName="username"
+              [ngClass]="{
+                'is-invalid': submitted && f.username.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.username.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.username.errors.required">
+                username is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="userPassword">user Password</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Password"
+              formControlName="userPassword"
+              [ngClass]="{
+                'is-invalid': submitted && f.userPassword.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.userPassword.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.userPassword.errors.required">
+                Password is required
+              </div>
+              <div *ngIf="f.userPassword.errors.minlength">
+                Password must be at least 8 characters
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer" style="width: 100%;">
+        <button
+          class="btn btn-danger"
+          style="float: right;"
+          (click)="onReset()"
+        >
+          Cancel
+        </button>
+        <button
+          *ngIf="submiteMode"
+          class="btn btn-success mr-2"
+          style="float: right;"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+        <button
+          *ngIf="UpdateMode"
+          class="btn btn-success mr-2"
+          style="float: right;"
+          (click)="UpdateData()"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Customer Grid
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Customer Address</th>
+              <th>Customer Email</th>
+              <th>Customer Phone</th>
+              <th>Customer Mobile</th>
+              <th>Contact Person Name</th>
+              <th>Contact Person Email</th>
+              <th>Customer Phone</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of AllData">
+              <td>{{ client.customer_name }}</td>
+              <td>{{ client.customer_address }}</td>
+              <td>{{ client.customer_email }}</td>
+
+              <td>{{ client.customer_phone }}</td>
+              <td>{{ client.customer_mobile }}</td>
+              <td>{{ client.data.contact_person_email }}</td>
+              <td>{{ client.data.contact_person_email }}</td>
+              <td>{{ client.data.contact_person_phone }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="addBranch(client)">
+                  Add Branch
+                </button>
+                <button
+                  class="btn btn-success"
+                  (click)="updateCustomer(client)"
+                >
+                  Update
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>

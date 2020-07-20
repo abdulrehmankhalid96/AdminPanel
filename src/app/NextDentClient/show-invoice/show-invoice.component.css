@@ -1,0 +1,30 @@
+.mainrow{
+  padding: 5px;
+}
+.printbtn{
+  background-color: #0e69ff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.second_row{
+  padding: 30px 0px 0px 0px;
+}
+.tableheader th{
+  border-top: none;
+}
+.infosection{
+  background: white;
+    /* padding: 36px 0px 0px 0px; */
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #f1f1f1;
+}
+.summarytable td{
+  float: right;
+    padding: 17px 43px 11px 15px;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+}

@@ -1,0 +1,188 @@
+<button class="btn btn-primary" type="button" (click)="toggle_function()">
+  Add Branches
+</button>
+<form [formGroup]="BranchesForm" *ngIf="toggle_Employe">
+  <div class="card">
+    <div class="card-header">
+      <strong>Add Branches</strong>
+    </div>
+    <div class="card-body">
+      <!--First-Row-->
+      <div class="form-group row">
+        <!--first Name-->
+        <div class="col-md-3">
+          <label class="col-form-label" for="branch_Name">Branch Name</label>
+          <div>
+            <input
+              type="text"
+              id="Branch_Name"
+              name="Branch_Name"
+              class="form-control"
+              placeholder="branch name"
+              formControlName="BranchName"
+              [ngClass]="{ 'is-invalid': submitted && f.BranchName.errors }"
+            />
+            <div
+              *ngIf="submitted && f.BranchName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.BranchName.errors.required">
+                Branch Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Last Name-->
+        <div class="col-md-3">
+          <label class="col-form-label" for="hf-City">City</label>
+          <div>
+            <input
+              type="text"
+              id="branches_city"
+              name="branches_city"
+              class="form-control"
+              placeholder="City.."
+              formControlName="City"
+              [ngClass]="{ 'is-invalid': submitted && f.City.errors }"
+            />
+            <div *ngIf="submitted && f.City.errors" class="invalid-feedback">
+              <div *ngIf="f.City.errors.required">City is required</div>
+            </div>
+          </div>
+        </div>
+        <!--Email-->
+        <div class="col-md-3">
+          <label class="col-form-label" for="hf-Address">Address</label>
+          <div>
+            <input
+              type="text"
+              id="branches_address"
+              name="branches_address"
+              class="form-control"
+              placeholder="Address.."
+              formControlName="address"
+              [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+            />
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+              <div *ngIf="f.address.errors.required">
+                Address number is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Gender-->
+        <div class="col-md-3">
+          <label class="col-form-label" for="hf-phone">Phone Number</label>
+          <div>
+            <input
+              type="tel"
+              id="branch_phone"
+              name="branch_phone"
+              class="form-control"
+              placeholder="Phone Number.."
+              formControlName="phone"
+              [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+            />
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required">
+                Phone number is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Second Row-->
+      <div class="form-group row">
+        <div class="col-md-3">
+          <label class="col-form-label" for="branch_status">Status</label>
+          <div>
+            <select
+              id="branch_status"
+              name="branch_status"
+              class="form-control"
+              formControlName="Status"
+              [ngClass]="{ 'is-invalid': submitted && f.Status.errors }"
+            >
+              <option value="">Please select</option>
+              <option
+                *ngFor="let Status of Status"
+                [ngValue]="Status.branch_status_id"
+                >{{ Status.branch_status_title }}</option
+              >
+            </select>
+            <div *ngIf="submitted && f.Status.errors" class="invalid-feedback">
+              <div *ngIf="f.Status.errors.required">Status is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Third RoW-->
+    </div>
+
+    <div class="card-footer">
+      <button
+        *ngIf="submitMode"
+        (click)="onSubmit()"
+        class="btn btn-sm btn-primary"
+      >
+        <i class="fa fa-dot-circle-o"></i> Submit
+      </button>
+      <button
+        *ngIf="UpdateMode"
+        class="btn btn-sm btn-primary"
+        (click)="updateBranch()"
+      >
+        <i class="fa fa-dot-circle-o"></i> Update
+      </button>
+      <button class="btn btn-sm btn-danger">
+        <i class="fa fa-ban"></i> Cancel
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="card">
+  <div class="card-header">
+    <i class="fa fa-align-justify"></i> Branches Table
+    <i
+      ><select>
+        <option selected>5</option>
+        <option>10</option>
+        <option>15</option>
+      </select></i
+    >
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Sr#</th>
+          <th>Branch Name</th>
+
+          <th>City</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let branches of AllbranchesData; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ branches.branch_name }}</td>
+          <td>{{ branches.branch_city }}</td>
+          <td>{{ branches.branch_address }}</td>
+          <td>{{ branches.branch_phone }}</td>
+          <td *ngIf="branches.branch_status_id == '1'">Created</td>
+          <td *ngIf="branches.branch_status_id == '2'">Approved</td>
+          <td>
+            <button class="btn btn-success" (click)="updatefunction(branches)">
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <nav></nav>
+  </div>
+</div>

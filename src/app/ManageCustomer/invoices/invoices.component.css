@@ -1,0 +1,47 @@
+
+.titleRow{
+  font-size: 25px;
+  padding: 0px 10px 10px 33px;
+}
+.titleRow_2{
+  font-size: 30px;
+  padding: 0px 10px 10px 33px;
+}
+.titleIcon{
+  padding: 0px 0px 2px 20px
+}
+.inputtype{
+    border: none;
+    padding: 6px;
+    box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.labeltype{
+  padding-left: 20px;
+}
+.buttontype{
+  color: white;
+    background:  rgb(65, 139, 202);
+    border: none;
+    padding: 7px 7px 7px 7px;
+    /* padding-left: 4px; */
+    margin-left: 7px;
+}
+
+.searchinput{
+  border: none;
+  padding: 6px 5px 5px 5px;
+  box-shadow: 3px 3px 3px 3px #e8f2fc;
+margin-left: 5px;
+width: 25%;
+}
+h6{
+  padding:  18px 10px 3px 18px;
+}
+.table{
+  background: white;
+  padding: 15px 2px 0px 0px;
+  box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.t_header{
+  border-top: none !important;
+}

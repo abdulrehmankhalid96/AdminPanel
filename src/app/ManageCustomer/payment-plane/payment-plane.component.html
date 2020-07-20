@@ -1,0 +1,133 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-danger" (click)="toggleForm()">
+        Add Payment Plane
+      </button>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <form [formGroup]="PaymentPlaneForm" *ngIf="PaymentPlanetoggle">
+    <div class="card">
+      <div class="card-header">
+        <strong>Add Payment Planes</strong>
+      </div>
+      <div class="card-body">
+        <!--First-Row-->
+        <div class="form-group row">
+          <!--first Name-->
+          <div class="col-md-3">
+            <label class="col-form-label" for="branch_Name"
+              >Package Title</label
+            >
+            <div>
+              <input
+                type="text"
+                id="Branch_Name"
+                name="Branch_Name"
+                class="form-control"
+                placeholder="Package Title"
+                formControlName="package_title"
+                [ngClass]="{
+                  'is-invalid': submitted && f.package_title.errors
+                }"
+              />
+              <div
+                *ngIf="submitted && f.package_title.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.package_title.errors.required">
+                  Package Title is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Last Name-->
+          <div class="col-md-3">
+            <label class="col-form-label" for="hf-City"
+              >Package Description</label
+            >
+            <div>
+              <input
+                type="text"
+                id="branches_city"
+                name="branches_city"
+                class="form-control"
+                placeholder="Package Description"
+                formControlName="package_description"
+                [ngClass]="{
+                  'is-invalid': submitted && f.package_description.errors
+                }"
+              />
+              <div
+                *ngIf="submitted && f.package_description.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.package_description.errors.required">
+                  Package Description is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Second Row-->
+
+        <!--Third RoW-->
+      </div>
+
+      <div class="card-footer">
+        <button
+          *ngIf="submitMode"
+          (click)="onSubmit()"
+          class="btn btn-sm btn-primary"
+        >
+          <i class="fa fa-dot-circle-o"></i> Submit
+        </button>
+        <button
+          *ngIf="UpdateMode"
+          class="btn btn-sm btn-primary"
+          (click)="updatePlane()"
+        >
+          <i class="fa fa-dot-circle-o"></i> Update
+        </button>
+        <button class="btn btn-sm btn-danger">
+          <i class="fa fa-ban"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="card">
+  <div class="card-header">
+    <i class="fa fa-align-justify"></i> Branches Table
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Sr#</th>
+          <th>Package Title</th>
+          <th>Package Description</th>
+          <th>Date Created</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of PaymentPlanedata; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ data.package_title }}</td>
+          <td>{{ data.package_description }}</td>
+          <td>{{ data.date_time_created }}</td>
+
+          <td>
+            <button class="btn btn-success" (click)="updatefunction(data)">
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <nav></nav>
+  </div>
+</div>

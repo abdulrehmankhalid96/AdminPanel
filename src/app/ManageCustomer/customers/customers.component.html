@@ -1,0 +1,574 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-12" style="font-size: 28px;">
+     <div>
+      Customers
+
+     </div>
+     <div><button class='addnewCustomer' (click)='openModal()'>New Customer</button> </div>
+        </div>
+
+  </div>
+
+  <div class="row mt-3" >
+    <div class="col-md-4 mt-2" *ngFor='let customer of AllData'>
+      <div class="C_card"  >
+      <div class="row" style="padding:36px 0px 0px 50px">
+      <img src= '{{baseUrl+customer.company_logo}}' height="50px" >
+
+
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12">Name :{{customer.customer_name}} </div>
+  </div>
+  <div class="row card_contant">
+    <div class="col-md-12">URl :{{customer.company_url}}</div>
+  </div>
+  <div class="row card_contant">
+    <div class="col-md-12">Status :{{customer.customer_status_title}}</div>
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12"> Branches: {{customer.branches_count}} <a class='link' (click)='allbranches(customer)'>show All</a> </div>
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12">Contact Person: {{cont_p_name(customer)}}</div>
+  </div>
+  <div class="row card_contant" >
+    <div class="col-md-12">Address :{{customer.customer_address}}</div>
+  </div>
+  <div class="row " style='padding-right: 45px;' >
+    <!-- <div class="col-md-12"><button class='updatebtn' (click)='updateCustomer(customer)'>Update</button> -->
+      <div class="col-md-12"><button class='updatebtn' (click)='AddNewBranch(customer)'>Add Branch</button>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+<modal #mymodel>
+  <modal-header style="background: #88a8ef !important;
+  color: white !important;">
+
+  </modal-header>
+
+  <modal-content>
+    <div class='row'>
+      <div class="col-md-4">
+        <div class="row " style="padding: 0px 1px 0px 43px;
+        font-size: 19px;">
+       Profile
+        </div>
+        <div class="row" class="placehplderimg" >
+          <img src={{ULR_FOR_Place_Holder}} style="    height: 85px;
+          width: 85px;
+          border-radius: 82px;">
+        </div>
+    <div class="row" style="padding: 20px 0px 0px 82px">
+      <span class="btn btn-default btn-file mt-1">
+        Browse…
+        <input
+          type="file"
+          id="imgInp"
+           (change)='Addfile($event)'
+        />
+      </span>
+   {{filename_whichIs_Selected}}
+   <p style='color:red' *ngIf='fileisEmpty'>Image is required</p>
+    </div>
+      </div>
+    <div class="col-md-8">
+      <form [formGroup]='branchForm'>
+      <div class="row" >
+        <div class='col-md-4' >
+          <label for="exampleInputEmail1">Company Name</label>
+          <input
+          type="text"
+          id="Branch_Name"
+          name="Branch_Name"
+          class="form-control"
+          placeholder="Company Name"
+          formControlName="CompanyName"
+          [ngClass]="{ 'is-invalid': submitted && f.CompanyName.errors }"
+          >
+          <div
+          *ngIf="submitted && f.CompanyName.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f.CompanyName.errors.required">
+            Company name is required
+          </div>
+        </div>
+        </div>
+        <div class='col-md-4' >
+          <label for="exampleInputEmail1">Email</label>
+          <input
+          type="text"
+          id="Email"
+          name="Email"
+          class="form-control"
+          placeholder="Email"
+          formControlName="Email"
+          [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+          >
+          <div
+          *ngIf="submitted && f.Email.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f.Email.errors.required">
+            Email is required
+          </div>
+        </div>
+        </div>
+         <div class='col-md-4' >
+          <label for="exampleInputEmail1">Phone</label>
+          <input
+          type="text"
+          id="branches_address"
+          name="branches_address"
+          class="form-control"
+          placeholder="Phone"
+          formControlName="phone"
+          [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+
+          >
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">
+              phone is required
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="row" >
+        <div class='col-md-4' >
+          <label for="exampleInputEmail1">Mobile</label>
+          <input
+          type="text"
+          id="mobile"
+          name="mobile"
+          class="form-control"
+          placeholder="mobile"
+          formControlName="mobile"
+          [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"
+
+          >
+          <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+            <div *ngIf="f.mobile.errors.required">
+              mobile is required
+            </div>
+          </div>
+
+        </div>
+        <div class='col-md-4' >
+          <label for="exampleInputEmail1">City</label>
+          <input
+          type="text"
+          id="City"
+          name="City"
+          class="form-control"
+          placeholder="City"
+          formControlName="City"
+          [ngClass]="{ 'is-invalid': submitted && f.City.errors }"
+
+          >
+          <div *ngIf="submitted && f.City.errors" class="invalid-feedback">
+            <div *ngIf="f.City.errors.required">
+              City is required
+            </div>
+          </div>
+
+        </div>
+
+        <div class='col-md-4' >
+          <label for="exampleInputEmail1">Address</label>
+          <input
+          type="text"
+          id="address"
+          name="address"
+          class="form-control"
+          placeholder="Address"
+          formControlName="address"
+          [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+
+          >
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">
+              Address is required
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class='col-md-6' >
+          <label for="exampleInputEmail1">Contact Person</label>
+          <input
+          name="Contant_person"
+          class="form-control"
+          placeholder="Contant Person"
+          formControlName="Contant_person"
+          [ngClass]="{ 'is-invalid': submitted && f.Contant_person.errors }"
+          >
+          <div *ngIf="submitted && f.Contant_person.errors" class="invalid-feedback">
+            <div *ngIf="f.Contant_person.errors.required">Contact Person is required</div>
+          </div>
+
+        </div> -->
+
+      </div>
+      <div class="row" >
+        <div class='col-md-6' >
+          <label for="exampleInputEmail1">Contact Person Name</label>
+          <input
+          name="Contant_person_name"
+          class="form-control"
+          placeholder="Contact Person Name"
+          formControlName="Contant_person_name"
+          [ngClass]="{ 'is-invalid': submitted && f.Contant_person_name.errors }"
+          >
+          <div *ngIf="submitted && f.Contant_person_name.errors" class="invalid-feedback">
+            <div *ngIf="f.Contant_person_name.errors.required">Person name is required</div>
+          </div>
+        </div>
+
+        <div class='col-md-6' >
+          <label for="exampleInputEmail1"> Person designation</label>
+          <input
+          name="Contant_person_designation"
+          class="form-control"
+          placeholder="Designation"
+          formControlName="Contant_person_designation"
+          [ngClass]="{ 'is-invalid': submitted && f.Contant_person_designation.errors }"
+          >
+          <div *ngIf="submitted && f.Contant_person_designation.errors" class="invalid-feedback">
+            <div *ngIf="f.Contant_person_designation.errors.required">Person designation is required</div>
+          </div>
+        </div>
+
+
+      </div>
+<div class='row'>
+  <div class='col-md-6' >
+    <label for="exampleInputEmail1">Contact Person Phone</label>
+    <input
+    type="text"
+    id="branches_city"
+    name="branches_city"
+    class="form-control"
+    placeholder="Contact Person Phone"
+    formControlName="Contant_person_phone"
+    [ngClass]="{ 'is-invalid': submitted && f.Contant_person_phone.errors }"
+    >
+    <div *ngIf="submitted && f.Contant_person_phone.errors" class="invalid-feedback">
+      <div *ngIf="f.Contant_person_phone.errors.required">Contact Person Phone is required</div>
+    </div>
+  </div>
+  <div class='col-md-6' >
+    <label for="exampleInputEmail1">Contact Person Email</label>
+    <input
+    type="text"
+    id="Contant_person_email"
+    name="Contant_person_email"
+    class="form-control"
+    placeholder="Contact Person Email"
+    formControlName="Contant_person_email"
+    [ngClass]="{ 'is-invalid': submitted && f.Contant_person_email.errors }"
+    >
+    <div *ngIf="submitted && f.Contant_person_email.errors" class="invalid-feedback">
+      <div *ngIf="f.Contant_person_email.errors.required">Contact Person Email is required</div>
+    </div>
+  </div>
+</div>
+      <div class="row" >
+
+
+        <div class='col-md-4'  [hidden]='update_Cutomer' >
+          <label for="exampleInputEmail1">Username</label>
+          <input
+          type="text"
+          id="userName"
+          name="userName"
+
+          class="form-control"
+          placeholder="Username"
+          formControlName="userName"
+          [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+          >
+          <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+            <div *ngIf="f.userName.errors.required"> Username is required</div>
+          </div>
+        </div>
+
+        <div class='col-md-4'  [hidden]='update_Cutomer' >
+          <label for="exampleInputEmail1">Password</label>
+          <input
+          type="text"
+          id="Password"
+          name="Password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="Password"
+
+          [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
+          >
+          <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+            <div *ngIf="f.Password.errors.required"> Password is required</div>
+          </div>
+        </div>
+
+        <div class='col-md-4'  [hidden]='update_Cutomer'>
+          <label for="exampleInputEmail1">Payment Plan</label>
+          <select formControlName="PaymentPlane" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PaymentPlane.errors }">
+            <option  selected value="disabled">Select Payment Plan</option>
+            <option *ngFor="let suit of PaymentPlane" value={{suit.package_id}}>{{suit.package_title}}</option>
+          </select>
+          <div *ngIf="submitted && f.PaymentPlane.errors" class="invalid-feedback">
+            <div *ngIf="f.PaymentPlane.errors.required">Payment Plan is required</div>
+        </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </form>
+    </div>
+  </div>
+  </modal-content>
+
+  <modal-footer>
+    <div class="row">
+
+
+      <div class="col-md-12">
+        <button class="sub_req " *ngIf='addcustomer'  (click)="onSubmit()">Submit Request</button>
+        <button class="sub_req "  *ngIf='update_Cutomer' (click)='update()'>Update</button>
+      </div>
+    </div>
+  </modal-footer>
+</modal>
+
+<modal #customer_branches>
+  <modal-header style="background: #88a8ef !important;
+  color: white !important;">
+
+  </modal-header>
+
+  <modal-content>
+    <div class="table-responsive">
+      <table class="table">
+        <thead >
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+           <tr *ngFor='let branch of all_breaches_of_client; let i = index'>
+             <td>{{i+1}}</td>
+             <td>{{branch.branch_name}}</td>
+             <td>{{branch.branch_address}}</td>
+             <td>{{branch.city}}</td>
+             <td>{{branch.branch_phone}}</td>
+             <td>{{statusCheck(branch.branch_status_id)}}</td>
+             <td ><div class="dropdown">
+              <button class="dropbtn"><i class="fa fa-caret-down " aria-hidden="true"></i></button>
+              <div class="dropdown-content">
+                <a *ngIf='branch.branch_status_id=="1"'>Activate</a>
+                <a *ngIf='branch.branch_status_id=="2"'>Deactivate</a>
+
+              </div>
+            </div></td>
+
+           </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </modal-content>
+
+  <modal-footer>
+    <div class="row">
+
+
+      <div class="col-md-12">
+       <button class="sub_req " *ngIf='false'  (click)="onSubmit()">Submit Request</button>
+       <button class="sub_req "  *ngIf='update_Cutomer' >Update</button>
+      </div>
+    </div>
+  </modal-footer>
+</modal>
+
+<modal #uploadImage>
+  <modal-header style="background: #88a8ef !important;
+  color: white !important;">
+
+  </modal-header>
+
+  <modal-content>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row " style="padding: 0px 1px 0px 43px;
+        font-size: 19px;">
+       Profile
+        </div>
+        <div class="row" class="placehplderimg" >
+          <img src="assets/img/brand/avatar-1577909_1280.png" style="    height: 85px;
+          width: 85px;
+          border-radius: 82px;">
+        </div>
+    <div class="row" style="padding: 20px 0px 0px 82px">
+      <span class="btn btn-default btn-file mt-1">
+        Browse…
+        <input
+          type="file"
+          id="imgInp"
+
+        />
+      </span>
+
+    </div>
+      </div>
+      </div>
+  </modal-content>
+
+  <modal-footer>
+    <div class="row">
+
+
+      <div class="col-md-12">
+       <button class="sub_req " *ngIf='false'  (click)="onSubmit()">Submit Request</button>
+       <button class="sub_req "  *ngIf='update_Cutomer' >Update</button>
+      </div>
+    </div>
+  </modal-footer>
+</modal>
+<modal #AddBranchModel>
+  <modal-header style="background: #88a8ef !important;
+  color: white !important;">
+
+  </modal-header>
+
+  <modal-content>
+      <div class="row">
+
+
+        <div class="col-md-8">
+          <form [formGroup]='AddBranchForm'>
+          <div class="row" >
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">Branch Name</label>
+              <input
+              type="text"
+              id="Branch_Name"
+              name="Branch_Name"
+              class="form-control"
+              placeholder="branch name"
+              formControlName="BranchName"
+              [ngClass]="{ 'is-invalid': submitted && g.BranchName.errors }"
+              >
+              <div
+              *ngIf="submitted && g.BranchName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="g.BranchName.errors.required">
+                Branch Name is required
+              </div>
+            </div>
+            </div>
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">City</label>
+              <input
+              type="text"
+              id="branches_city"
+              name="branches_city"
+              class="form-control"
+              placeholder="City.."
+              formControlName="City"
+              [ngClass]="{ 'is-invalid': submitted && g.City.errors }"
+              >
+              <div *ngIf="submitted && g.City.errors" class="invalid-feedback">
+                <div *ngIf="g.City.errors.required">City is required</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row" >
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">Phone Number </label>
+              <input
+              name="Phone"
+              class="form-control"
+              placeholder="Phone.."
+              formControlName="phone"
+              [ngClass]="{ 'is-invalid': submitted && g.phone.errors }"
+              >
+              <div *ngIf="submitted && g.phone.errors" class="invalid-feedback">
+                <div *ngIf="g.phone.errors.required">phone is required</div>
+              </div>
+            </div>
+
+            <div class='col-md-6' >
+              <label for="exampleInputEmail1">Address</label>
+              <input
+              type="text"
+              id="branches_address"
+              name="branches_address"
+              class="form-control"
+              placeholder="Address.."
+              formControlName="address"
+              [ngClass]="{ 'is-invalid': submitted && g.address.errors }"
+
+              >
+              <div *ngIf="submitted && g.address.errors" class="invalid-feedback">
+                <div *ngIf="g.address.errors.required">
+                  Address is required
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+          <div class="row">
+
+
+            <div class="col-md-12">
+             <button class="sub_req "   (click)="onSubmitBranch()">Submit Request</button>
+            </div>
+          </div>
+        </form>
+        </div>
+
+
+      </div>
+  </modal-content>
+
+  <modal-footer>
+    <button class='btn cencalbtn' (click)='closeBranchModal()'>cancel</button>
+  </modal-footer>
+</modal>

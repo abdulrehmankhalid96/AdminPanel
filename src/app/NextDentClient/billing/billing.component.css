@@ -1,0 +1,12 @@
+.table_header th{
+color:#c7cbcf;
+font-size: 19px;
+border: none;
+}
+.table_body td{
+  font-size:18px ;
+}
+.boxing {
+  padding: 1px 15px 1px 15px;
+    box-shadow: 3px 3px 3px 3px #e8f2fc;
+}

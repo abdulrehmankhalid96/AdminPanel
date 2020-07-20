@@ -1,0 +1,80 @@
+.card{
+  padding: 5px;
+    background: white;
+    box-shadow:  3px 3px 3px 3px #e8f2fc;
+    margin-top: 10px;
+    height: 175px;
+}
+.center{
+  color: #ca79f7;
+  text-align: center;
+  font-size: 50px
+}
+.center_numb_1{
+  color: #99b4f2;
+  text-align: center;
+  font-size: 50px
+}
+.center_numb_3{
+  color: #ffce57;
+  text-align: center;
+  font-size: 50px
+
+}
+.center_numb_4{
+  color: #91ecae;
+  text-align: center;
+  font-size: 50px
+}
+.center_2{
+  font-size: 18px;
+  text-align: center;
+}
+.title{
+  font-size: 22px;
+  padding: 20px 0px 30px 0px;
+
+}
+span{
+  padding:  18px 10px 3px 18px;
+}
+
+.labeltype{
+  padding-left: 20px;
+  float: right;
+
+}
+.buttontype{
+  color: white;
+    background:  rgb(65, 139, 202);
+    border: none;
+    padding: 7px 7px 7px 7px;
+    /* padding-left: 4px; */
+    margin-left: 7px;
+    float: left;
+}
+.card_2 {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 5px 5px 5px 5px gray;
+  height: 175px;
+}
+.disp{
+  background: white;
+  height: 290px;
+  margin-bottom: 15px;
+  padding:4px 30px 2px 30px;
+  box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.inputtype{
+  border: none;
+  padding: 6px;
+
+  box-shadow: 3px 3px 3px 3px #e8f2fc;
+}
+.cardtitle{
+  font-size: 18px;
+  color: #98b3f1;
+  padding: 0px 0px 12px 0px;
+}

@@ -1,0 +1,140 @@
+<div class="container-fluid" >
+  <div class="row">
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center">{{MyBranches}}</p>
+    <p class="center_2">My Branches</p>
+    </div>
+  </div>
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center_numb_1">{{NextPayment}}</p>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <p class="center_2">Next Payment due</p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    </div>
+  </div>
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center_numb_3">{{LastPayment}}</p>
+    <p class="center_2">last  month Credit amount</p>
+    </div>
+  </div>
+  <div class="col-md-3 ">
+    <div class="card">
+    <p class="center_numb_4">00</p>
+    <p class="center_2">Tickets Generated</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid" >
+
+  <div class="row " style="padding-top: 28px;padding-left: 15px;" >
+    <div class="col-md-5 ">
+      <div class="tableBody table-responsive">
+
+        <table class="table">
+
+          <thead class="theaderstyel">
+            <tr>
+              <th>Branch</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+
+          <tbody class="tbodystyle">
+            <tr *ngFor='let Branch of BranchesList'>
+              <td>{{Branch.branch_name}}</td>
+              <td>{{Branch.branch_address}}</td>
+              <td>{{Branch.city}}</td>
+              <td>
+                {{Branch.branch_status_title}}
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+    </div>
+
+    <div class="col-md-1"></div>
+    <!-- <div class="col-md-6" style="    background: white; box-shadow: 3px 3px 3px 3px #e8f2fc;
+    padding: 0px 0px 0px 0px;">
+      <div class="row " style="padding:0px 17px 0px 15px" >
+        <div class="col-md-12 tabaleHeader" >New Users</div>
+
+      </div>
+      <div class="tableBody table-responsive">
+
+        <table class="table">
+
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Date registered</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Samppa Nori</td>
+              <td>2012/01/01</td>
+              <td>Member</td>
+              <td>
+                <span class="badge badge-success">Active</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Estavan Lykos</td>
+              <td>2012/02/01</td>
+              <td>Staff</td>
+              <td>
+                <span class="badge badge-danger">Banned</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Chetan Mohamed</td>
+              <td>2012/02/01</td>
+              <td>Admin</td>
+              <td>
+                <span class="badge badge-secondary">Inactive</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Derick Maximinus</td>
+              <td>2012/03/01</td>
+              <td>Member</td>
+              <td>
+                <span class="badge badge-warning">Pending</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Friderik Dávid</td>
+              <td>2012/01/21</td>
+              <td>Staff</td>
+              <td>
+                <span class="badge badge-success">Active</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div> -->
+  </div>
+</div>
