@@ -72,6 +72,7 @@ export class CustomersComponent implements OnInit {
   public title:any='Add new Customer'
   openModal(){
     this.branchForm.reset();
+    this.ULR_FOR_Place_Holder='assets/img/brand/avatar-1577909_1280.png';
     let x={
       user_id:localStorage.getItem('user_id'),
       auth_token:localStorage.getItem('auth_token')
@@ -150,6 +151,7 @@ onSubmit() {
       this.AddBranch();
       this.modalRef=this.modalService.close(this.mymodel);
        this.branchForm.reset();
+       this.filename_whichIs_Selected='';
        this.getingAllCustomerts();
     }
   }
@@ -198,7 +200,7 @@ updateCustomer(customer){
   console.log(customer);
   this.ULR_FOR_Place_Holder=this.baseUrl+customer.company_logo
   this.customer_id_for_update=customer.customer_id
-  // this.content_person_ID=customer.contact_person[0].contact_person_id;
+  this.content_person_ID=customer.contact_person[0].contact_person_id;
   // console.log(this.content_person_ID)
   this.title='Update Customer'
   this.addcustomer=false;
@@ -213,7 +215,7 @@ updateCustomer(customer){
     phone:customer.customer_phone,
     Email:customer.customer_email,
     mobile:customer.customer_mobile,
-
+    
     Contant_person_name:customer.contact_person[0].contact_person_name,
     Contant_person_designation:customer.contact_person[0].contact_person_designation,
     Contant_person_phone:customer.contact_person[0].contact_person_phone,

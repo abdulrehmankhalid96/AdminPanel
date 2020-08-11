@@ -8,23 +8,28 @@
 .center{
   color: #ca79f7;
   text-align: center;
-  font-size: 50px
+  font-size: 50px;
+  padding-top: 20%
 }
 .center_numb_1{
   color: #99b4f2;
   text-align: center;
-  font-size: 50px
+  font-size: 50px;
+  padding-top: 20%;
+
 }
 .center_numb_3{
   color: #ffce57;
   text-align: center;
-  font-size: 50px
+  font-size: 50px;
+  padding-top: 20%
 
 }
 .center_numb_4{
   color: #91ecae;
   text-align: center;
-  font-size: 50px
+  font-size: 50px;
+  padding-top: 20%
 }
 .center_2{
   font-size: 18px;

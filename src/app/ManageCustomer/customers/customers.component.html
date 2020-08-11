@@ -36,9 +36,12 @@
   <div class="row card_contant" >
     <div class="col-md-12">Address :{{customer.customer_address}}</div>
   </div>
-  <div class="row " style='padding-right: 45px;' >
+  <div class="row " style="padding: 3%" >
     <!-- <div class="col-md-12"><button class='updatebtn' (click)='updateCustomer(customer)'>Update</button> -->
-      <div class="col-md-12"><button class='updatebtn' (click)='AddNewBranch(customer)'>Add Branch</button>
+      <div class="col-md-12">
+        
+        <button  class="badge badge-primary updatebtn" (click)='AddNewBranch(customer)'>Add Branch</button>
+        <button class='badge badge-primary updatebtn mr-2' (click)='updateCustomer(customer)'>Update</button>
     </div>
 
   </div>
@@ -86,7 +89,7 @@
       </div>
     <div class="col-md-8">
       <form [formGroup]='branchForm'>
-      <div class="row" >
+      <div class="row " >
         <div class='col-md-4' >
           <label for="exampleInputEmail1">Company Name</label>
           <input
@@ -94,7 +97,7 @@
           id="Branch_Name"
           name="Branch_Name"
           class="form-control"
-          placeholder="Company Name"
+          
           formControlName="CompanyName"
           [ngClass]="{ 'is-invalid': submitted && f.CompanyName.errors }"
           >
@@ -114,7 +117,7 @@
           id="Email"
           name="Email"
           class="form-control"
-          placeholder="Email"
+          
           formControlName="Email"
           [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
           >
@@ -134,7 +137,7 @@
           id="branches_address"
           name="branches_address"
           class="form-control"
-          placeholder="Phone"
+          
           formControlName="phone"
           [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
 
@@ -149,7 +152,7 @@
 
 
       </div>
-      <div class="row" >
+      <div class="row mt-3" >
         <div class='col-md-4' >
           <label for="exampleInputEmail1">Mobile</label>
           <input
@@ -157,7 +160,7 @@
           id="mobile"
           name="mobile"
           class="form-control"
-          placeholder="mobile"
+          
           formControlName="mobile"
           [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"
 
@@ -176,7 +179,7 @@
           id="City"
           name="City"
           class="form-control"
-          placeholder="City"
+          
           formControlName="City"
           [ngClass]="{ 'is-invalid': submitted && f.City.errors }"
 
@@ -196,7 +199,7 @@
           id="address"
           name="address"
           class="form-control"
-          placeholder="Address"
+          
           formControlName="address"
           [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
 
@@ -224,13 +227,13 @@
         </div> -->
 
       </div>
-      <div class="row" >
+      <div class="row  mt-3" >
         <div class='col-md-6' >
           <label for="exampleInputEmail1">Contact Person Name</label>
           <input
           name="Contant_person_name"
           class="form-control"
-          placeholder="Contact Person Name"
+          
           formControlName="Contant_person_name"
           [ngClass]="{ 'is-invalid': submitted && f.Contant_person_name.errors }"
           >
@@ -244,7 +247,7 @@
           <input
           name="Contant_person_designation"
           class="form-control"
-          placeholder="Designation"
+          
           formControlName="Contant_person_designation"
           [ngClass]="{ 'is-invalid': submitted && f.Contant_person_designation.errors }"
           >
@@ -255,7 +258,7 @@
 
 
       </div>
-<div class='row'>
+<div class='row mt-3' >
   <div class='col-md-6' >
     <label for="exampleInputEmail1">Contact Person Phone</label>
     <input
@@ -263,7 +266,7 @@
     id="branches_city"
     name="branches_city"
     class="form-control"
-    placeholder="Contact Person Phone"
+    
     formControlName="Contant_person_phone"
     [ngClass]="{ 'is-invalid': submitted && f.Contant_person_phone.errors }"
     >
@@ -278,7 +281,7 @@
     id="Contant_person_email"
     name="Contant_person_email"
     class="form-control"
-    placeholder="Contact Person Email"
+    
     formControlName="Contant_person_email"
     [ngClass]="{ 'is-invalid': submitted && f.Contant_person_email.errors }"
     >
@@ -287,7 +290,7 @@
     </div>
   </div>
 </div>
-      <div class="row" >
+      <div class="row mt-3" >
 
 
         <div class='col-md-4'  [hidden]='update_Cutomer' >
@@ -298,7 +301,7 @@
           name="userName"
 
           class="form-control"
-          placeholder="Username"
+          
           formControlName="userName"
           [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
           >
@@ -314,7 +317,7 @@
           id="Password"
           name="Password"
           class="form-control"
-          placeholder="Password"
+          
           formControlName="Password"
 
           [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
@@ -327,7 +330,7 @@
         <div class='col-md-4'  [hidden]='update_Cutomer'>
           <label for="exampleInputEmail1">Payment Plan</label>
           <select formControlName="PaymentPlane" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PaymentPlane.errors }">
-            <option  selected value="disabled">Select Payment Plan</option>
+            <option   value="null" disabled="true" [selected]="true">Select Payment Plan</option>
             <option *ngFor="let suit of PaymentPlane" value={{suit.package_id}}>{{suit.package_title}}</option>
           </select>
           <div *ngIf="submitted && f.PaymentPlane.errors" class="invalid-feedback">

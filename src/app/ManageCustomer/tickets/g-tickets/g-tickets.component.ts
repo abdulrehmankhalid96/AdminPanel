@@ -24,7 +24,8 @@ export class GTicketsComponent implements OnInit {
   private modalRef;
   public tickets_form:FormGroup;
   public all_tickets:any;
-  public ReplyForm:FormGroup
+  public ReplyForm:FormGroup;
+
   constructor(private modalService: ModalManager,public router:Router,public fb:FormBuilder,
     public service:AppServiceService,public share:ShareserviceService){}
 
