@@ -1,5 +1,5 @@
 import { AppServiceService } from './../../app-service.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ModalManager } from 'ngb-modal';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
@@ -26,6 +26,7 @@ export class CustomersComponent implements OnInit {
   @ViewChild('customer_branches') customer_branches;
 @ViewChild('uploadImage') uploadImage ;
 @ViewChild('AddBranchModel',{static:false}) AddBranchModel
+@ViewChild('dropDownContent',{static:false}) dropDownContent:ElementRef;
   ngOnInit(): void {
     this.AddBranchForm=this.fb.group({
       BranchName:['', Validators.required],
@@ -238,18 +239,17 @@ update(){
     customer_email:this.branchForm.controls["Email"].value,
     customer_mobile: this.branchForm.controls["mobile"].value,
     city: this.branchForm.controls["City"].value,
-    customer_address: this.branchForm.controls["address"].value,
+    customer_address: this.branchForm.controls["address"].value,  
+    contact_person:{
+      contact_person_id:this.content_person_ID,
+      contact_person_name:this.branchForm.controls["Contant_person_name"].value,
+      contact_person_designation:this.branchForm.controls["Contant_person_designation"].value,
+      contact_person_phone:this.branchForm.controls["Contant_person_phone"].value,
+      
+      
+      contact_person_email:this.branchForm.controls["Contant_person_email"].value,
+    },  
 
-
-
-    company_logo:this.Selected_File_data,
-contact_person_id:this.content_person_ID,
-contact_person_name:this.branchForm.controls["Contant_person_name"].value,
-contact_person_designation:this.branchForm.controls["Contant_person_designation"].value,
-contact_person_phone:this.branchForm.controls["Contant_person_phone"].value,
-
-
-contact_person_email:this.branchForm.controls["Contant_person_email"].value,
 
 
   };
@@ -316,7 +316,7 @@ AddNewBranch(data){
   console.log(this.Customer_Who_want_add_branch);
   this.modalRef = this.modalService.open(this.AddBranchModel, {
     title:"Add Branch",
-  size: "lg",
+  size: "md",
   modalClass: "",
   hideCloseButton: false,
   centered: false,
@@ -369,4 +369,5 @@ closeBranchModal(){
   this.AddBranchForm.reset();
   this.modalRef=this.modalService.close(this.AddBranchModel);
 }
+
 }

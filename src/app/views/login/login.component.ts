@@ -83,4 +83,5 @@ export class LoginComponent implements OnInit {
       this.router.navigate(["/Manage/CustomerBranches"]);
     }
   };
+
 }

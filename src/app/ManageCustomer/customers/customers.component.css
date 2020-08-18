@@ -33,9 +33,11 @@
 .updatebtn{
   float: right;
   padding: 8px;
-  background: #95bbdf;
+  background: #00D853;
   color: white;
-  border: none
+  border: none;
+  font-weight: lighter;
+  
 }
 .placehplderimg{
   padding: 42px 0px 0px 68px;

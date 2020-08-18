@@ -39,7 +39,16 @@
   <div class="row " style="padding: 3%" >
     <!-- <div class="col-md-12"><button class='updatebtn' (click)='updateCustomer(customer)'>Update</button> -->
       <div class="col-md-12">
-        
+        <div class="btn-group" style="float: right; padding-left: 7px;" dropdown>
+          <button dropdownToggle type="button" class="badge badge-primary updatebtn dropdown-toggle">
+        Status <span class="caret"></span>
+          </button>
+          <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li role="menuitem"><a class="dropdown-item" >Activate</a></li>
+              <li role="menuitem"><a class="dropdown-item" >Deactivate</a></li>
+            
+          </ul>
+        </div>
         <button  class="badge badge-primary updatebtn" (click)='AddNewBranch(customer)'>Add Branch</button>
         <button class='badge badge-primary updatebtn mr-2' (click)='updateCustomer(customer)'>Update</button>
     </div>
@@ -65,7 +74,7 @@
   <modal-content>
     <div class='row'>
       <div class="col-md-4">
-        <div class="row " style="padding: 0px 1px 0px 43px;
+        <div *ngIf='addcustomer' class="row " style="padding: 0px 1px 0px 43px;
         font-size: 19px;">
        Profile
         </div>
@@ -74,7 +83,7 @@
           width: 85px;
           border-radius: 82px;">
         </div>
-    <div class="row" style="padding: 20px 0px 0px 82px">
+    <div *ngIf='addcustomer' class="row" style="padding: 20px 0px 0px 82px">
       <span class="btn btn-default btn-file mt-1">
         Browse…
         <input
@@ -392,7 +401,7 @@
              <td>{{branch.branch_phone}}</td>
              <td>{{statusCheck(branch.branch_status_id)}}</td>
              <td ><div class="dropdown">
-              <button class="dropbtn"><i class="fa fa-caret-down " aria-hidden="true"></i></button>
+              <button class="dropbtn">Status <i class="fa fa-caret-down " aria-hidden="true"></i></button>
               <div class="dropdown-content">
                 <a *ngIf='branch.branch_status_id=="1"'>Activate</a>
                 <a *ngIf='branch.branch_status_id=="2"'>Deactivate</a>
@@ -474,7 +483,7 @@
       <div class="row">
 
 
-        <div class="col-md-8">
+        <div class="col-md-12">
           <form [formGroup]='AddBranchForm'>
           <div class="row" >
             <div class='col-md-6' >
@@ -484,7 +493,7 @@
               id="Branch_Name"
               name="Branch_Name"
               class="form-control"
-              placeholder="branch name"
+              
               formControlName="BranchName"
               [ngClass]="{ 'is-invalid': submitted && g.BranchName.errors }"
               >
@@ -504,7 +513,7 @@
               id="branches_city"
               name="branches_city"
               class="form-control"
-              placeholder="City.."
+              
               formControlName="City"
               [ngClass]="{ 'is-invalid': submitted && g.City.errors }"
               >
@@ -520,7 +529,7 @@
               <input
               name="Phone"
               class="form-control"
-              placeholder="Phone.."
+              
               formControlName="phone"
               [ngClass]="{ 'is-invalid': submitted && g.phone.errors }"
               >
@@ -536,7 +545,7 @@
               id="branches_address"
               name="branches_address"
               class="form-control"
-              placeholder="Address.."
+              
               formControlName="address"
               [ngClass]="{ 'is-invalid': submitted && g.address.errors }"
 
@@ -561,7 +570,7 @@
 
 
             <div class="col-md-12">
-             <button class="sub_req "   (click)="onSubmitBranch()">Submit Request</button>
+            
             </div>
           </div>
         </form>
@@ -572,6 +581,7 @@
   </modal-content>
 
   <modal-footer>
-    <button class='btn cencalbtn' (click)='closeBranchModal()'>cancel</button>
+    <button class="sub_req "   (click)="onSubmitBranch()">Submit Request</button>
+    
   </modal-footer>
 </modal>

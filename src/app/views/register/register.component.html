@@ -1,103 +1,298 @@
-<div class="app-body">
-  <main class="main d-flex align-items-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card mx-4">
-            <div class="card-body p-4">
-              <form>
-                <h1>Register</h1>
-                <p class="text-muted">Create your account</p>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-user"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Fisrt name"
-                    autocomplete="username"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-user"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="last name"
-                    autocomplete="username"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Email"
-                    autocomplete="email"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-lock"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Password"
-                    autocomplete="new-password"
-                    required
-                  />
-                </div>
-                <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="icon-lock"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Repeat password"
-                    autocomplete="new-password"
-                    required
-                  />
-                </div>
-                <button type="button" class="btn btn-block btn-success">
-                  Create Account
-                </button>
-              </form>
-            </div>
-            <div class="card-footer p-4">
-              <div class="row">
-                <div class="col-6">
-                  <button class="btn btn-block btn-facebook" type="button">
-                    <span>facebook</span>
-                  </button>
-                </div>
-                <div class="col-6">
-                  <button class="btn btn-block btn-twitter" type="button">
-                    <span>twitter</span>
-                  </button>
-                </div>
-              </div>
+
+<div class="container" >
+  <div class="card">
+    <div class="card-header">
+      Registration
+    </div>
+  
+    <div class="card-body">
+      <div class='row'>
+        <div class="col-md-4">
+          
+          <div class="row" class="placehplderimg" >
+            <img src={{ULR_FOR_Place_Holder}} style="    height: 85px;
+            width: 85px;
+            border-radius: 82px;">
+          </div>
+      <div  class="row" style="padding: 20px 0px 0px 82px">
+        <span class="btn btn-default btn-file mt-1">
+          Browse…
+          <input
+            type="file"
+            id="imgInp"
+             (change)='Addfile($event)'
+          />
+        </span>
+     <p>{{filename_whichIs_Selected}}</p>
+     <p style='color:red' *ngIf='fileisEmpty'>Image is required</p>
+      </div>
+        </div>
+      <div class="col-md-8">
+        <form [formGroup]='branchForm'>
+        <div class="row " >
+          <div class='col-md-4' >
+            <label for="exampleInputEmail1">Company Name</label>
+            <input
+            type="text"
+            id="Branch_Name"
+            name="Branch_Name"
+            class="form-control"
+            
+            formControlName="CompanyName"
+            [ngClass]="{ 'is-invalid': submitted && f.CompanyName.errors }"
+            >
+            <div
+            *ngIf="submitted && f.CompanyName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.CompanyName.errors.required">
+              Company name is required
             </div>
           </div>
+          </div>
+          <div class='col-md-4' >
+            <label for="exampleInputEmail1">Email</label>
+            <input
+            type="text"
+            id="Email"
+            name="Email"
+            class="form-control"
+            
+            formControlName="Email"
+            [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+            >
+            <div
+            *ngIf="submitted && f.Email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.Email.errors.required">
+              Email is required
+            </div>
+          </div>
+          </div>
+           <div class='col-md-4' >
+            <label for="exampleInputEmail1">Phone</label>
+            <input
+            type="text"
+            id="branches_address"
+            name="branches_address"
+            class="form-control"
+            
+            formControlName="phone"
+            [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+  
+            >
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required">
+                phone is required
+              </div>
+            </div>
+  
+          </div>
+  
+  
         </div>
+        <div class="row mt-3" >
+          <div class='col-md-4' >
+            <label for="exampleInputEmail1">Mobile</label>
+            <input
+            type="text"
+            id="mobile"
+            name="mobile"
+            class="form-control"
+            
+            formControlName="mobile"
+            [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"
+  
+            >
+            <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+              <div *ngIf="f.mobile.errors.required">
+                mobile is required
+              </div>
+            </div>
+  
+          </div>
+          <div class='col-md-4' >
+            <label for="exampleInputEmail1">City</label>
+            <input
+            type="text"
+            id="City"
+            name="City"
+            class="form-control"
+            
+            formControlName="City"
+            [ngClass]="{ 'is-invalid': submitted && f.City.errors }"
+  
+            >
+            <div *ngIf="submitted && f.City.errors" class="invalid-feedback">
+              <div *ngIf="f.City.errors.required">
+                City is required
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class='col-md-4' >
+            <label for="exampleInputEmail1">Address</label>
+            <input
+            type="text"
+            id="address"
+            name="address"
+            class="form-control"
+            
+            formControlName="address"
+            [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+  
+            >
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+              <div *ngIf="f.address.errors.required">
+                Address is required
+              </div>
+            </div>
+  
+          </div>
+          <!-- <div class='col-md-6' >
+            <label for="exampleInputEmail1">Contact Person</label>
+            <input
+            name="Contant_person"
+            class="form-control"
+            placeholder="Contant Person"
+            formControlName="Contant_person"
+            [ngClass]="{ 'is-invalid': submitted && f.Contant_person.errors }"
+            >
+            <div *ngIf="submitted && f.Contant_person.errors" class="invalid-feedback">
+              <div *ngIf="f.Contant_person.errors.required">Contact Person is required</div>
+            </div>
+  
+          </div> -->
+  
+        </div>
+        <div class="row  mt-3" >
+          <div class='col-md-6' >
+            <label for="exampleInputEmail1">Contact Person Name</label>
+            <input
+            name="Contant_person_name"
+            class="form-control"
+            
+            formControlName="Contant_person_name"
+            [ngClass]="{ 'is-invalid': submitted && f.Contant_person_name.errors }"
+            >
+            <div *ngIf="submitted && f.Contant_person_name.errors" class="invalid-feedback">
+              <div *ngIf="f.Contant_person_name.errors.required">Person name is required</div>
+            </div>
+          </div>
+  
+          <div class='col-md-6' >
+            <label for="exampleInputEmail1"> Person designation</label>
+            <input
+            name="Contant_person_designation"
+            class="form-control"
+            
+            formControlName="Contant_person_designation"
+            [ngClass]="{ 'is-invalid': submitted && f.Contant_person_designation.errors }"
+            >
+            <div *ngIf="submitted && f.Contant_person_designation.errors" class="invalid-feedback">
+              <div *ngIf="f.Contant_person_designation.errors.required">Person designation is required</div>
+            </div>
+          </div>
+  
+  
+        </div>
+  <div class='row mt-3' >
+    <div class='col-md-6' >
+      <label for="exampleInputEmail1">Contact Person Phone</label>
+      <input
+      type="text"
+      id="branches_city"
+      name="branches_city"
+      class="form-control"
+      
+      formControlName="Contant_person_phone"
+      [ngClass]="{ 'is-invalid': submitted && f.Contant_person_phone.errors }"
+      >
+      <div *ngIf="submitted && f.Contant_person_phone.errors" class="invalid-feedback">
+        <div *ngIf="f.Contant_person_phone.errors.required">Contact Person Phone is required</div>
       </div>
     </div>
-  </main>
+    <div class='col-md-6' >
+      <label for="exampleInputEmail1">Contact Person Email</label>
+      <input
+      type="text"
+      id="Contant_person_email"
+      name="Contant_person_email"
+      class="form-control"
+      
+      formControlName="Contant_person_email"
+      [ngClass]="{ 'is-invalid': submitted && f.Contant_person_email.errors }"
+      >
+      <div *ngIf="submitted && f.Contant_person_email.errors" class="invalid-feedback">
+        <div *ngIf="f.Contant_person_email.errors.required">Contact Person Email is required</div>
+      </div>
+    </div>
+  </div>
+        <div class="row mt-3" >
+  
+  
+          <div class='col-md-4'  [hidden]='update_Cutomer' >
+            <label for="exampleInputEmail1">Username</label>
+            <input
+            type="text"
+            id="userName"
+            name="userName"
+  
+            class="form-control"
+            
+            formControlName="userName"
+            [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+            >
+            <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+              <div *ngIf="f.userName.errors.required"> Username is required</div>
+            </div>
+          </div>
+  
+          <div class='col-md-4'  [hidden]='update_Cutomer' >
+            <label for="exampleInputEmail1">Password</label>
+            <input
+            type="text"
+            id="Password"
+            name="Password"
+            class="form-control"
+            
+            formControlName="Password"
+  
+            [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
+            >
+            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+              <div *ngIf="f.Password.errors.required"> Password is required</div>
+            </div>
+          </div>
+  
+          <div class='col-md-4'  [hidden]='update_Cutomer'>
+            <label for="exampleInputEmail1">Payment Plan</label>
+            <select formControlName="PaymentPlane" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PaymentPlane.errors }">
+              <option   value="null" disabled="true" [selected]="true">Select Payment Plan</option>
+              <option *ngFor="let suit of PaymentPlane" value={{suit.package_id}}>{{suit.package_title}}</option>
+            </select>
+            <div *ngIf="submitted && f.PaymentPlane.errors" class="invalid-feedback">
+              <div *ngIf="f.PaymentPlane.errors.required">Payment Plan is required</div>
+          </div>
+          </div>
+        </div>
+  
+  
+  
+  
+  
+  
+      </form>
+      </div>
+    </div>
+    </div>
+
+    <div class="card-footer">
+      <button class="sub_req_cancel"  >Cancel</button>
+      <button class="sub_req "  (click)="onSubmit()">Submit Request</button>
+    </div>
+
+  </div>
 </div>
